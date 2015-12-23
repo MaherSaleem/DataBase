@@ -18,14 +18,14 @@ import javax.swing.JOptionPane;
 
 public class ConnectToDataBase {
 
-	public Connection con = null;
-	public Statement st = null;// object to write sql on it
-	public String url = "jdbc:mysql://localhost/hospital";
-	public String user = "root";
-	public String pass = "";
+	public static Connection con = null;
+	public static Statement st = null;// object to write sql on it
+	public static  String url = "jdbc:mysql://localhost/hospital";
+	public static  String user = "root";
+	public static  String pass = "";
 
 	// function to connect
-	public void go() {
+	public static void go() {
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -58,6 +58,8 @@ public class ConnectToDataBase {
 //		ResultSet rs = DB.st.executeQuery("SELECT * FROM departement");
 //		while (rs.next())
 //			System.out.println(rs.getInt("did") + " " + rs.getString("dname"));
+		
+		DB.st.execute(String.format("INSERT INTO `test` (`tid`, `tname`) VALUES (5, 'maher')" ));
 
 	}
 	

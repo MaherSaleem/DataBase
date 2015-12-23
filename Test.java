@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 
 public class Test {
 
@@ -50,8 +52,17 @@ public class Test {
 	}
 	
 	
-	static void addToDataBase(){
-		//TODO (insert statement will be put here)
+	static void addToDataBase(Test t){
+		try{
+			ConnectToDataBase.st.execute(
+					String.format(
+							"INSERT INTO `test` (`tid`, `tname`) VALUES (%d, '%s')" ,t.Tid , t.Tname));
+			
+		}
+		catch(Exception e){
+			JOptionPane.showMessageDialog(null, "there in and error with insearting this test");
+		}
+
 	}
 	
 	static  void deleteFromDataBase(){
