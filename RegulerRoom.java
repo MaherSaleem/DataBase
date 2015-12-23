@@ -2,6 +2,11 @@
 public class RegulerRoom extends Room{
 	int noBed ;
 
+	
+	public RegulerRoom() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public RegulerRoom(int rid, int did, int noBed) {
 		super(rid, did);
 		this.noBed= noBed;

@@ -1,10 +1,10 @@
 import javax.swing.JOptionPane;
 
 public class City {
-	int cid;
+	Integer cid;
 	String cname;
 
-	public City(int cid, String cname) {
+	public City(Integer cid, String cname) {
 		super();
 		this.cid = cid;
 		this.cname = cname;
@@ -14,11 +14,11 @@ public class City {
 		super();
 	}
 
-	public int getCid() {
+	public Integer getCid() {
 		return cid;
 	}
 
-	public void setCid(int cid) {
+	public void setCid(Integer cid) {
 		this.cid = cid;
 	}
 

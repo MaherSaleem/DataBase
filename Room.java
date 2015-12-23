@@ -1,14 +1,20 @@
+import javax.swing.JOptionPane;
+
 
 public class Room {
-	int rid ;
+	
+	
+	Integer rid ;
 	Integer did ;
 	
 	
+	
+	public Room(){}
 	/**
 	 * @param rid
 	 * @param did
 	 */
-	public Room(int rid, Integer did) {
+	public Room(Integer rid, Integer did) {
 		super();
 		this.rid = rid;
 		this.did = did;
@@ -19,7 +25,7 @@ public class Room {
 	/**
 	 * @return the rid
 	 */
-	public int getRid() {
+	public Integer getRid() {
 		return rid;
 	}
 
@@ -52,8 +58,20 @@ public class Room {
 
 
 
-	public static void insertToDatabase() {
-		//To Do
+	public static void insertToDatabase(Room r) {
+		try {
+			ConnectToDataBase.st.execute(String.format(
+					"INSERT INTO `hospital`.`room` (`rid`, `did`) "
+					+ "VALUES ('%d', '%d')", r.rid, r.did));
+
+		}
+		catch (Exception e) {
+			JOptionPane.showMessageDialog(null,
+					"there in and error with insearting this room");
+			e.printStackTrace();
+		}
+
+
 	}
 	public static void deletToDatabase() {
 		//To Do

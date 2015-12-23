@@ -1,16 +1,20 @@
 
 public class Patient {
-	int pid ;
+	Integer pid ;
 	String pname;
 	char gender;
 	
 	
+	
+	public Patient() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * @param pid
 	 * @param pname
 	 * @param gender
 	 */
-	public Patient(int pid, String pname, char gender) {
+	public Patient(Integer pid, String pname, char gender) {
 		this.pid = pid;
 		this.pname = pname;
 		this.gender = gender;
@@ -20,7 +24,7 @@ public class Patient {
 	/**
 	 * @return the pid
 	 */
-	public int getPid() {
+	public Integer getPid() {
 		return pid;
 	}
 
@@ -28,7 +32,7 @@ public class Patient {
 	/**
 	 * @param pid the pid to set
 	 */
-	public void setPid(int pid) {
+	public void setPid(Integer pid) {
 		this.pid = pid;
 	}
 

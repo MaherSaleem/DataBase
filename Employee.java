@@ -199,7 +199,7 @@ public class Employee {
 		catch (Exception ex) {
 			JOptionPane.showMessageDialog(null,
 					"there in and error with insearting this employee");
-			ex.printStackTrace();
+//			ex.printStackTrace();
 		}
 
 	}

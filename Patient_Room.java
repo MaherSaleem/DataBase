@@ -1,7 +1,7 @@
 
 public class Patient_Room {
 
-	int pid;
+	Integer pid;
 	Integer Eid;
 	Integer Rid;
 	date dat;
@@ -9,6 +9,9 @@ public class Patient_Room {
 	
 	
 	
+	public Patient_Room() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * @param pid
 	 * @param eid
@@ -16,7 +19,7 @@ public class Patient_Room {
 	 * @param dat
 	 * @param endDate
 	 */
-	public Patient_Room(int pid, Integer eid, Integer rid, date dat,
+	public Patient_Room(Integer pid, Integer eid, Integer rid, date dat,
 			date endDate) {
 		super();
 		this.pid = pid;
@@ -32,7 +35,7 @@ public class Patient_Room {
 	/**
 	 * @return the pid
 	 */
-	public int getPid() {
+	public Integer getPid() {
 		return pid;
 	}
 
@@ -42,7 +45,7 @@ public class Patient_Room {
 	/**
 	 * @param pid the pid to set
 	 */
-	public void setPid(int pid) {
+	public void setPid(Integer pid) {
 		this.pid = pid;
 	}
 

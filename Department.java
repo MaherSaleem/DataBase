@@ -1,7 +1,7 @@
 import javax.swing.JOptionPane;
 
 public class Department {
-	int did;
+	Integer did;
 	String dname;
 
 	
@@ -10,17 +10,17 @@ public class Department {
 		
 	}
 	
-	public Department(int did, String dname) {
+	public Department(Integer did, String dname) {
 		super();
 		this.did = did;
 		this.dname = dname;
 	}
 
-	public int getDid() {
+	public Integer getDid() {
 		return did;
 	}
 
-	public void setDid(int did) {
+	public void setDid(Integer did) {
 		this.did = did;
 	}
 

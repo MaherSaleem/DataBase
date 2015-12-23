@@ -9,7 +9,9 @@ public class Patient_Test {
 	
 	
 	
-	
+	public Patient_Test() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	/**
 	 * @param pid

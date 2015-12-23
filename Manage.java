@@ -6,6 +6,10 @@ public class Manage {
 	date enddate ;
 
 	
+	
+	public Manage(){
+		
+	}
 	/**
 	 * @param eid
 	 * @param did
@@ -95,7 +99,7 @@ public class Manage {
 
 
 	public static void insertToDatabase() {
-		//To Do
+		
 	}
 	public static void deletToDatabase() {
 		//To Do

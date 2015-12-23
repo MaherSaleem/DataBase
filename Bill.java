@@ -8,12 +8,16 @@ import com.mysql.jdbc.PreparedStatement;
  *
  */
 public class Bill {
-	int pid;
+	Integer pid;
 	Integer eid;
 	date dat;
 	double amount;
 	
 	
+	
+	public Bill(){
+		
+	}
 	
 	/**
 	 * @param pid
@@ -21,7 +25,7 @@ public class Bill {
 	 * @param dat
 	 * @param amount
 	 */
-	public Bill(int pid, Integer eid, date dat, double amount) {
+	public Bill(Integer pid, Integer eid, date dat, double amount) {
 		this.pid = pid;
 		this.eid = eid;
 		this.dat = dat;
@@ -35,7 +39,7 @@ public class Bill {
 	/**
 	 * @return the pid
 	 */
-	public int getPid() {
+	public Integer getPid() {
 		return pid;
 	}
 
@@ -46,7 +50,7 @@ public class Bill {
 	/**
 	 * @param pid the pid to set
 	 */
-	public void setPid(int pid) {
+	public void setPid(Integer pid) {
 		this.pid = pid;
 	}
 

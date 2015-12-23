@@ -1,17 +1,20 @@
 
 public class Medicine {
-	int mid;
+	Integer mid;
 	String mname;
 	int price;
 	
 	
+	
+	public Medicine() {
+	}
 	/**
 	 * Constructor
 	 * @param mid
 	 * @param mname
 	 * @param price
 	 */
-	public Medicine(int mid, String mname, int price) {
+	public Medicine(Integer mid, String mname, int price) {
 		this.mid = mid;
 		this.mname = mname;
 		this.price = price;
@@ -21,7 +24,7 @@ public class Medicine {
 	/**
 	 * @return the mid
 	 */
-	public int getMid() {
+	public Integer getMid() {
 		return mid;
 	}
 
@@ -29,7 +32,7 @@ public class Medicine {
 	/**
 	 * @param mid the mid to set
 	 */
-	public void setMid(int mid) {
+	public void setMid(Integer mid) {
 		this.mid = mid;
 	}
 

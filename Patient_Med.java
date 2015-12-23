@@ -1,13 +1,16 @@
 
 public class Patient_Med {
 
-	int Pid;
+	Integer Pid;
 	Integer Eid;
 	Integer Mid;
 	date dat;
 	Integer quantity;
 	
 	
+	public Patient_Med() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * @param pid
 	 * @param eid
@@ -15,7 +18,7 @@ public class Patient_Med {
 	 * @param dat
 	 * @param quantity
 	 */
-	public Patient_Med(int pid, Integer eid, Integer mid, date dat,
+	public Patient_Med(Integer pid, Integer eid, Integer mid, date dat,
 			Integer quantity) {
 		super();
 		Pid = pid;
@@ -32,7 +35,7 @@ public class Patient_Med {
 	/**
 	 * @return the pid
 	 */
-	public int getPid() {
+	public Integer getPid() {
 		return Pid;
 	}
 
@@ -43,7 +46,7 @@ public class Patient_Med {
 	/**
 	 * @param pid the pid to set
 	 */
-	public void setPid(int pid) {
+	public void setPid(Integer pid) {
 		Pid = pid;
 	}
 
