@@ -1,81 +1,211 @@
+import javax.swing.JOptionPane;
+
+import com.mysql.jdbc.PreparedStatement;
 
 public class Employee {
-	int eid ;
+	Integer eid;
 	String ename;
-	int did;
-	date dbirth;
+	Integer did;
+	date ebirth;
 	int sallary;
-	int cid ;
+	Integer cid;
 	int superviseid;
-	int rid;
+	Integer rid;
+
 	public Employee() {
 		super();
 	}
-	public Employee(int eid, String ename, int did, date dbirth, int sallary, int cid, int superviseid, int rid) {
-		super();
+
+	
+
+	/**
+	 * @param eid
+	 * @param ename
+	 * @param did
+	 * @param ebirth
+	 * @param sallary
+	 * @param cid
+	 * @param superviseid
+	 * @param rid
+	 */
+	public Employee(Integer eid, String ename, Integer did, date ebirth,
+			int sallary, Integer cid, int superviseid, Integer rid) {
 		this.eid = eid;
 		this.ename = ename;
 		this.did = did;
-		this.dbirth = dbirth;
+		this.ebirth = ebirth;
 		this.sallary = sallary;
 		this.cid = cid;
 		this.superviseid = superviseid;
 		this.rid = rid;
 	}
-	public int getEid() {
+
+
+	
+	/**
+	 * @return the eid
+	 */
+	public Integer getEid() {
 		return eid;
 	}
-	public void setEid(int eid) {
+
+
+
+	/**
+	 * @param eid the eid to set
+	 */
+	public void setEid(Integer eid) {
 		this.eid = eid;
 	}
+
+
+
+	/**
+	 * @return the ename
+	 */
 	public String getEname() {
 		return ename;
 	}
+
+
+
+	/**
+	 * @param ename the ename to set
+	 */
 	public void setEname(String ename) {
 		this.ename = ename;
 	}
-	public int getDid() {
+
+
+
+	/**
+	 * @return the did
+	 */
+	public Integer getDid() {
 		return did;
 	}
-	public void setDid(int did) {
+
+
+
+	/**
+	 * @param did the did to set
+	 */
+	public void setDid(Integer did) {
 		this.did = did;
 	}
-	public date getDbirth() {
-		return dbirth;
+
+
+
+	/**
+	 * @return the ebirth
+	 */
+	public date getEbirth() {
+		return ebirth;
 	}
-	public void setDbirth(date dbirth) {
-		this.dbirth = dbirth;
+
+
+
+	/**
+	 * @param ebirth the ebirth to set
+	 */
+	public void setEbirth(date ebirth) {
+		this.ebirth = ebirth;
 	}
+
+
+
+	/**
+	 * @return the sallary
+	 */
 	public int getSallary() {
 		return sallary;
 	}
+
+
+
+	/**
+	 * @param sallary the sallary to set
+	 */
 	public void setSallary(int sallary) {
 		this.sallary = sallary;
 	}
-	public int getCid() {
+
+
+
+	/**
+	 * @return the cid
+	 */
+	public Integer getCid() {
 		return cid;
 	}
-	public void setCid(int cid) {
+
+
+
+	/**
+	 * @param cid the cid to set
+	 */
+	public void setCid(Integer cid) {
 		this.cid = cid;
 	}
+
+
+
+	/**
+	 * @return the superviseid
+	 */
 	public int getSuperviseid() {
 		return superviseid;
 	}
+
+
+
+	/**
+	 * @param superviseid the superviseid to set
+	 */
 	public void setSuperviseid(int superviseid) {
 		this.superviseid = superviseid;
 	}
-	public int getRid() {
+
+
+
+	/**
+	 * @return the rid
+	 */
+	public Integer getRid() {
 		return rid;
 	}
-	public void setRid(int rid) {
+
+
+
+	/**
+	 * @param rid the rid to set
+	 */
+	public void setRid(Integer rid) {
 		this.rid = rid;
 	}
-	
-	public static void insertToDatabase() {
-		//To Do
+
+
+
+	public static void insertToDatabase(Employee e) {
+		try {
+			ConnectToDataBase.st
+					.execute(String
+							.format("INSERT INTO `hospital`.`employee` "
+									+ "(`Eid`, `Ename`, `did`, `salary`, `cid`, `supervise_eid`, `rid`) "
+									+ "VALUES ('%d', '%s', %d , %d, %d, %d , %d  )",
+									e.eid , e.ename , e.did   , e.sallary , e.cid , e.superviseid , e.rid));
+
+		}
+		catch (Exception ex) {
+			JOptionPane.showMessageDialog(null,
+					"there in and error with insearting this employee");
+			ex.printStackTrace();
+		}
+
 	}
+
 	public static void deletToDatabase() {
-		//To Do
+		// To Do
 	}
 
 }

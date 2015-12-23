@@ -2,21 +2,23 @@
 public class Patient_Room {
 
 	int pid;
-	int Eid;
-	int Rid;
+	Integer Eid;
+	Integer Rid;
 	date dat;
 	date endDate;
 	
 	
+	
 	/**
-	 * Constructor
 	 * @param pid
 	 * @param eid
 	 * @param rid
 	 * @param dat
 	 * @param endDate
 	 */
-	public Patient_Room(int pid, int eid, int rid, date dat, date endDate) {
+	public Patient_Room(int pid, Integer eid, Integer rid, date dat,
+			date endDate) {
+		super();
 		this.pid = pid;
 		Eid = eid;
 		Rid = rid;
@@ -24,6 +26,8 @@ public class Patient_Room {
 		this.endDate = endDate;
 	}
 
+	
+	
 
 	/**
 	 * @return the pid
@@ -31,6 +35,8 @@ public class Patient_Room {
 	public int getPid() {
 		return pid;
 	}
+
+
 
 
 	/**
@@ -41,36 +47,46 @@ public class Patient_Room {
 	}
 
 
+
+
 	/**
 	 * @return the eid
 	 */
-	public int getEid() {
+	public Integer getEid() {
 		return Eid;
 	}
+
+
 
 
 	/**
 	 * @param eid the eid to set
 	 */
-	public void setEid(int eid) {
+	public void setEid(Integer eid) {
 		Eid = eid;
 	}
+
+
 
 
 	/**
 	 * @return the rid
 	 */
-	public int getRid() {
+	public Integer getRid() {
 		return Rid;
 	}
+
+
 
 
 	/**
 	 * @param rid the rid to set
 	 */
-	public void setRid(int rid) {
+	public void setRid(Integer rid) {
 		Rid = rid;
 	}
+
+
 
 
 	/**
@@ -81,12 +97,16 @@ public class Patient_Room {
 	}
 
 
+
+
 	/**
 	 * @param dat the dat to set
 	 */
 	public void setDat(date dat) {
 		this.dat = dat;
 	}
+
+
 
 
 	/**
@@ -97,12 +117,16 @@ public class Patient_Room {
 	}
 
 
+
+
 	/**
 	 * @param endDate the endDate to set
 	 */
 	public void setEndDate(date endDate) {
 		this.endDate = endDate;
 	}
+
+
 
 
 	/* (non-Javadoc)

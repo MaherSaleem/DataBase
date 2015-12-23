@@ -1,3 +1,7 @@
+import javax.swing.JOptionPane;
+
+import com.mysql.jdbc.PreparedStatement;
+
 
 /**
  * @author Maher
@@ -5,24 +9,27 @@
  */
 public class Bill {
 	int pid;
-	int did;
+	Integer eid;
 	date dat;
 	double amount;
 	
 	
+	
 	/**
-	 * Constructor
 	 * @param pid
-	 * @param did
+	 * @param eid
 	 * @param dat
 	 * @param amount
 	 */
-	public Bill(int pid, int did, date dat, double amount) {
+	public Bill(int pid, Integer eid, date dat, double amount) {
 		this.pid = pid;
-		this.did = did;
+		this.eid = eid;
 		this.dat = dat;
 		this.amount = amount;
 	}
+	
+	
+	
 
 
 	/**
@@ -33,6 +40,9 @@ public class Bill {
 	}
 
 
+
+
+
 	/**
 	 * @param pid the pid to set
 	 */
@@ -41,20 +51,29 @@ public class Bill {
 	}
 
 
-	/**
-	 * @return the did
-	 */
-	public int getDid() {
-		return did;
-	}
+
 
 
 	/**
-	 * @param did the did to set
+	 * @return the eid
 	 */
-	public void setDid(int did) {
-		this.did = did;
+	public Integer getEid() {
+		return eid;
 	}
+
+
+
+
+
+	/**
+	 * @param eid the eid to set
+	 */
+	public void setEid(Integer eid) {
+		this.eid = eid;
+	}
+
+
+
 
 
 	/**
@@ -65,12 +84,18 @@ public class Bill {
 	}
 
 
+
+
+
 	/**
 	 * @param dat the dat to set
 	 */
 	public void setDat(date dat) {
 		this.dat = dat;
 	}
+
+
+
 
 
 	/**
@@ -81,30 +106,45 @@ public class Bill {
 	}
 
 
+
+
+
 	/**
 	 * @param amount the amount to set
 	 */
 	public void setAmount(double amount) {
 		this.amount = amount;
 	}
-	
-	
-	
-	
+
+
+
+
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "Bill [pid=" + pid + ", did=" + did + ", dat=" + dat
+		return "Bill [pid=" + pid + ", did=" + eid + ", dat=" + dat
 				+ ", amount=" + amount + "]";
 	}
 
 
-	static void addToDataBase(){
-		//TODO (insert statement will be put here)
+	static void addToDataBase(Bill b){
+		try{
+		
+		ConnectToDataBase.st.execute(
+				String.format(
+						"INSERT INTO `hospital`.`bill` (`pid`, `eid`, `date`, `amount`) "
+						+ "VALUES ('%d', '%d', '%s', %d)" ,b.pid, b.eid , b.dat , b.amount));
+		
+		}
+		catch(Exception e){
+			JOptionPane.showMessageDialog(null, "there in and error with insearting this bill");
+		}
+
+		//
 	}
-	
 	static  void deleteFromDataBase(){
 		//TODO
 	}

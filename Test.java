@@ -3,14 +3,14 @@ import javax.swing.JOptionPane;
 
 public class Test {
 
-	int Tid;
+	Integer Tid;
 	String Tname;
 	
 	/**
 	 * @param tid
 	 * @param tname
 	 */
-	public Test(int tid, String tname) {
+	public Test(Integer tid, String tname) {
 		Tid = tid;
 		Tname = tname;
 	}
@@ -18,7 +18,7 @@ public class Test {
 	/**
 	 * @return the tid
 	 */
-	public int getTid() {
+	public Integer getTid() {
 		return Tid;
 	}
 

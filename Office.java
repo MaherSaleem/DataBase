@@ -1,8 +1,7 @@
 
 public class Office  extends Room{
 
-	 int rid ;
-	 int eid;
+	 Integer eid;
 	public int getRid() {
 		return rid;
 	}

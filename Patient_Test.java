@@ -1,73 +1,91 @@
 
 public class Patient_Test {
 
-	int Pid;
-	int Eid;
-	int Tid;
+	Integer Pid;
+	Integer Eid;
+	Integer Tid;
 	date dat;
 	
 	
+	
+	
+	
+	
 	/**
-	 * Constructor
 	 * @param pid
 	 * @param eid
 	 * @param tid
 	 * @param dat
 	 */
-	public Patient_Test(int pid, int eid, int tid, date dat) {
+	public Patient_Test(Integer pid, Integer eid, Integer tid, date dat) {
+		super();
 		Pid = pid;
 		Eid = eid;
 		Tid = tid;
 		this.dat = dat;
 	}
 
+	
+	
 
 	/**
 	 * @return the pid
 	 */
-	public int getPid() {
+	public Integer getPid() {
 		return Pid;
 	}
+
+
 
 
 	/**
 	 * @param pid the pid to set
 	 */
-	public void setPid(int pid) {
+	public void setPid(Integer pid) {
 		Pid = pid;
 	}
+
+
 
 
 	/**
 	 * @return the eid
 	 */
-	public int getEid() {
+	public Integer getEid() {
 		return Eid;
 	}
+
+
 
 
 	/**
 	 * @param eid the eid to set
 	 */
-	public void setEid(int eid) {
+	public void setEid(Integer eid) {
 		Eid = eid;
 	}
+
+
 
 
 	/**
 	 * @return the tid
 	 */
-	public int getTid() {
+	public Integer getTid() {
 		return Tid;
 	}
+
+
 
 
 	/**
 	 * @param tid the tid to set
 	 */
-	public void setTid(int tid) {
+	public void setTid(Integer tid) {
 		Tid = tid;
 	}
+
+
 
 
 	/**
@@ -78,17 +96,18 @@ public class Patient_Test {
 	}
 
 
+
+
 	/**
 	 * @param dat the dat to set
 	 */
 	public void setDat(date dat) {
 		this.dat = dat;
 	}
-	
-	
-	
-	
-	
+
+
+
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
@@ -98,6 +117,8 @@ public class Patient_Test {
 				+ ", dat=" + dat + "]";
 	}
 
+
+	
 
 	static void addToDataBase(){
 		//TODO (insert statement will be put here)
