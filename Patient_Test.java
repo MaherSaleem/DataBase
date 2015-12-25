@@ -1,3 +1,4 @@
+import javax.swing.JOptionPane;
 
 public class Patient_Test {
 
@@ -5,14 +6,11 @@ public class Patient_Test {
 	Integer Eid;
 	Integer Tid;
 	date dat;
-	
-	
-	
-	
+
 	public Patient_Test() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	/**
 	 * @param pid
 	 * @param eid
@@ -27,9 +25,6 @@ public class Patient_Test {
 		this.dat = dat;
 	}
 
-	
-	
-
 	/**
 	 * @return the pid
 	 */
@@ -37,18 +32,13 @@ public class Patient_Test {
 		return Pid;
 	}
 
-
-
-
 	/**
-	 * @param pid the pid to set
+	 * @param pid
+	 *            the pid to set
 	 */
 	public void setPid(Integer pid) {
 		Pid = pid;
 	}
-
-
-
 
 	/**
 	 * @return the eid
@@ -57,18 +47,13 @@ public class Patient_Test {
 		return Eid;
 	}
 
-
-
-
 	/**
-	 * @param eid the eid to set
+	 * @param eid
+	 *            the eid to set
 	 */
 	public void setEid(Integer eid) {
 		Eid = eid;
 	}
-
-
-
 
 	/**
 	 * @return the tid
@@ -77,18 +62,13 @@ public class Patient_Test {
 		return Tid;
 	}
 
-
-
-
 	/**
-	 * @param tid the tid to set
+	 * @param tid
+	 *            the tid to set
 	 */
 	public void setTid(Integer tid) {
 		Tid = tid;
 	}
-
-
-
 
 	/**
 	 * @return the dat
@@ -97,20 +77,17 @@ public class Patient_Test {
 		return dat;
 	}
 
-
-
-
 	/**
-	 * @param dat the dat to set
+	 * @param dat
+	 *            the dat to set
 	 */
 	public void setDat(date dat) {
 		this.dat = dat;
 	}
 
-
-
-
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -119,16 +96,25 @@ public class Patient_Test {
 				+ ", dat=" + dat + "]";
 	}
 
+	static void insertToDataBase(Patient_Test p) {
+		try {
 
-	
+			ConnectToDataBase.st.execute(String.format(
+					"INSERT INTO `hospital`.`patient_test` "
+					+ "(`pid`, `tid`, `eid`, `date`) "
+					+ "VALUES (%d, %d, %d, '%s')" ,
+					p.Pid, p.Tid,p.Eid, p.dat.toString()));
 
-	static void addToDataBase(){
-		//TODO (insert statement will be put here)
+		}
+		catch (Exception e) {
+			JOptionPane.showMessageDialog(null,
+					"there in and error with insearting this pateint test");
+			e.printStackTrace();
+		}
 	}
-	
-	static  void deleteFromDataBase(){
-		//TODO
+
+	static void deleteFromDataBase() {
+		// TODO
 	}
-	
-	
+
 }

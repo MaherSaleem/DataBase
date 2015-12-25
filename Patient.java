@@ -1,9 +1,12 @@
+import javax.swing.JOptionPane;
+
 
 public class Patient {
 	Integer pid ;
 	String pname;
 	char gender;
-	
+	date dateOfBirth;
+	String bloadType; 
 	
 	
 	public Patient() {
@@ -70,8 +73,47 @@ public class Patient {
 	
 	
 	
-	public static void insertToDatabase() {
-		// TODO
+	/**
+	 * @return the dateOfBirth
+	 */
+	public date getDateOfBirth() {
+		return dateOfBirth;
+	}
+	/**
+	 * @param dateOfBirth the dateOfBirth to set
+	 */
+	public void setDateOfBirth(date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+	/**
+	 * @return the bloadType
+	 */
+	public String getBloadType() {
+		return bloadType;
+	}
+	/**
+	 * @param bloadType the bloadType to set
+	 */
+	public void setBloadType(String bloadType) {
+		this.bloadType = bloadType;
+	}
+	public static void insertToDatabase(Patient p) {
+		
+		try {
+			ConnectToDataBase.st.execute(String.format(
+					"INSERT INTO `hospital`.`patient`"
+					+ " (`pid`, `pname`, `gender`, `dateOfBirth`, `bload_type`) "
+					+ "VALUES ('%d', '%s', '%c', '%s', '%s' )", p.pid ,
+							p.pname , p.gender , p.dateOfBirth.toString() ,p.bloadType ));
+
+		}
+		catch (Exception e) {
+			JOptionPane.showMessageDialog(null,
+					"there in and error with insearting this patient");
+//			System.out.println(e.getMessage().toString());
+			e.printStackTrace();
+		}
+
 	}
 
 	public static void deletToDatabase() {

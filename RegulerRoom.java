@@ -1,31 +1,46 @@
+import javax.swing.JOptionPane;
+
 
 public class RegulerRoom extends Room{
-	int noBed ;
+	Integer noBed ;
 
 	
 	public RegulerRoom() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public RegulerRoom(int rid, int did, int noBed) {
+	public RegulerRoom(Integer rid, Integer did, Integer noBed) {
 		super(rid, did);
 		this.noBed= noBed;
 		// TODO Auto-generated constructor stub
 	}
 
-	public int getNoBed() {
+	public Integer getNoBed() {
 		return noBed;
 	}
 
-	public void setNoBed(int noBed) {
+	public void setNoBed(Integer noBed) {
 		this.noBed = noBed;
 	}
 	
-	public static void insertToDatabase() {
-		//To Do
+	public static void insertToDatabase(RegulerRoom R) {
+		try{
+			
+			Room.insertToDatabase(R);
+			
+			ConnectToDataBase.st.execute(
+					String.format(
+							"INSERT INTO `hospital`.`regular_room` "
+							+ "(`rid`, `numOfBeds`) VALUES (%d, %d)"  , R.rid , R.noBed));
+			
+		}
+		catch(Exception e){
+			JOptionPane.showMessageDialog(null, "there in and error with insearting this Room");
+			e.printStackTrace();
+		}
 	}
 	public static void deletToDatabase() {
-		//To Do
+		//TODO
 	}
 	
 

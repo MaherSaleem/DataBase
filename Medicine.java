@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 
 public class Medicine {
 	Integer mid;
@@ -79,8 +81,20 @@ public class Medicine {
 	}
 	
 	
-	static void addToDataBase(){
-		//TODO (insert statement will be put here)
+	static void insertToDataBase(Medicine M){
+		try {
+			ConnectToDataBase.st.execute(String.format(
+					"INSERT INTO `hospital`.`medecine` "
+					+ "(`mid`, `mname`, `price`) "
+					+ "VALUES (%d, '%s', %d)", M.mid , M.mname , M.price ));
+
+		}
+		catch (Exception e) {
+			JOptionPane.showMessageDialog(null,
+					"there in and error with insearting this medicine");
+//			System.out.println(e.getMessage().toString());
+			e.printStackTrace();
+		}
 	}
 	
 	static  void deleteFromDataBase(){
