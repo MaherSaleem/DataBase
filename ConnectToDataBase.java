@@ -59,8 +59,6 @@ public class ConnectToDataBase {
 		// while (rs.next())
 		// System.out.println(rs.getInt("did") + " " + rs.getString("dname"));
 
-		DB.st.execute(String
-				.format("INSERT INTO `test` (`tid`, `tname`) VALUES (5, 'maher')"));
 
 	}
 
