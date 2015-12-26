@@ -93,7 +93,7 @@ public class NewPatient extends JApplet {
 	public void whenFinish(JTabbedPane tabbedPane) {
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {			
-				Patient p = new Patient(188, txtPName.getText(), ((String)comboBox.getSelectedItem()).charAt(0));
+				Patient p = new Patient(null, txtPName.getText(), ((String)comboBox.getSelectedItem()).charAt(0));
 				p.setDateOfBirth(new date(20, 05, 1995));
 				p.insertToDatabase(p);
 				tabbedPane.remove(tabbedPane.getSelectedComponent());
