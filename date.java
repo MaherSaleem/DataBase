@@ -1,16 +1,12 @@
-
 public class date {
-	
-	
+
 	int day;
 	int month;
 	int year;
-	
-	
-
 
 	/**
 	 * Constructor
+	 * 
 	 * @param day
 	 * @param month
 	 * @param year
@@ -21,7 +17,6 @@ public class date {
 		this.year = year;
 	}
 
-
 	/**
 	 * @return the day
 	 */
@@ -29,14 +24,13 @@ public class date {
 		return day;
 	}
 
-
 	/**
-	 * @param day the day to set
+	 * @param day
+	 *            the day to set
 	 */
 	public void setDay(int day) {
 		this.day = day;
 	}
-
 
 	/**
 	 * @return the month
@@ -45,14 +39,13 @@ public class date {
 		return month;
 	}
 
-
 	/**
-	 * @param month the month to set
+	 * @param month
+	 *            the month to set
 	 */
 	public void setMonth(int month) {
 		this.month = month;
 	}
-
 
 	/**
 	 * @return the year
@@ -61,21 +54,17 @@ public class date {
 		return year;
 	}
 
-
 	/**
-	 * @param year the year to set
+	 * @param year
+	 *            the year to set
 	 */
 	public void setYear(int year) {
 		this.year = year;
 	}
-	
-	
+
 	@Override
-	public String toString(){
-		return String.format("%d-%d-%d", this.year , this.month , this.day);
+	public String toString() {
+		return String.format("%d-%d-%d", this.year, this.month, this.day);
 	}
-	
-	
-	
-	
+
 }

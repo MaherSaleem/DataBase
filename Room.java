@@ -62,12 +62,13 @@ public class Room {
 		try {
 			ConnectToDataBase.st.execute(String.format(
 					"INSERT INTO `hospital`.`room` (`rid`, `did`) "
-					+ "VALUES ('%d', '%d')", r.rid, r.did));
+					+ "VALUES ('%d', %d)", r.rid, r.did));
 
 		}
 		catch (Exception e) {
 			JOptionPane.showMessageDialog(null,
 					"there in and error with insearting this room");
+//			System.out.println(e.getMessage().toString());
 			e.printStackTrace();
 		}
 
