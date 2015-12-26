@@ -1,3 +1,4 @@
+package databasep;
 import java.io.ObjectInputStream.GetField;
 
 
@@ -40,7 +41,7 @@ public class TESTING_THE_PRO {
 //		Patient_Test.insertToDataBase(P_T);
 		
 		
-		Medicine M = new Medicine(11, "acamool", 10);
+		Medicine M = new Medicine(101, "acamool", 10);
 		Medicine.insertToDataBase(M);
 	}
 }
