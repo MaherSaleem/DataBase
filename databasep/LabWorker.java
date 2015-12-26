@@ -23,9 +23,9 @@ public class LabWorker extends Employee {
 	 * @param superviseid
 	 * @param rid
 	 */
-	public LabWorker(Integer eid, String ename, Integer did, date ebirth,
+	public LabWorker(Integer eid, String ename, Integer did,int type, date ebirth,
 			int sallary, Integer cid, int superviseid, Integer rid, Integer lid) {
-		super(eid, ename, did, ebirth, sallary, cid, superviseid, rid );
+		super(eid, ename, did,type, ebirth, sallary, cid, superviseid, rid );
 		// TODO Auto-generated constructor stub
 		this.lid = lid;
 	}
@@ -64,6 +64,7 @@ public class LabWorker extends Employee {
 	public static void insertToDatabase(LabWorker em) {
 		try {
 			// first : insert to employee first
+			em.setType(Employee.LAB_WORKER);
 			Employee.insertToDatabase(em);
 
 			// second :insert into labworker table

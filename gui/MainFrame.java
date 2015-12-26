@@ -56,16 +56,19 @@ import javax.swing.border.TitledBorder;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.sql.SQLException;
 
 public class MainFrame {
 
 	private JFrame frame;
 	private JTextField textField;
-
+	static int num;
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -129,7 +132,18 @@ public class MainFrame {
 		panel.setLayout(new GridLayout(0, 3, 3, 3));
 
 		// {{ Initialize Doctor Dashboard Component
-		DashboardComponent dshDoctors = new DashboardComponent("Doctors", 5);
+		
+		/**print the number of doctor in database*/
+		try {
+			ConnectToDataBase.rs = ConnectToDataBase.st.executeQuery("SELECT COUNT(*) as cou FROM `employee` e WHERE e.type=0");
+			ConnectToDataBase.rs.next();
+			num = ConnectToDataBase.rs.getInt("cou");
+		}
+		catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+
+		DashboardComponent dshDoctors = new DashboardComponent("Doctors", num);
 		panel.add(dshDoctors);
 
 		JButton btnShowAllDoctors = new JButton("Show All Doctors");
@@ -142,7 +156,17 @@ public class MainFrame {
 		// }}
 
 		// {{ Initialize Patient Dashboard Component
-		DashboardComponent dshPatients = new DashboardComponent("Patients", 5);
+		
+		/**print the number of patient in database*/
+		try {
+			ConnectToDataBase.rs = ConnectToDataBase.st.executeQuery("SELECT COUNT(*) as cou FROM `patient` WHERE 1");
+			ConnectToDataBase.rs.next();
+			num = ConnectToDataBase.rs.getInt("cou");
+		}
+		catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		DashboardComponent dshPatients = new DashboardComponent("Patients", num);
 		panel.add(dshPatients);
 
 		JButton btnShowAllPatients = new JButton("Show All Patients");
@@ -154,12 +178,34 @@ public class MainFrame {
 		// }}
 
 		// {{ Initialize Nurse Dashboard Component
-		DashboardComponent dshNurses = new DashboardComponent("Nurse", 5);
+		
+		/**print the number of doctor in database*/
+		try {
+			ConnectToDataBase.rs = ConnectToDataBase.st.executeQuery("SELECT COUNT(*) as cou FROM `employee` e WHERE e.type=1");
+			ConnectToDataBase.rs.next();
+			num = ConnectToDataBase.rs.getInt("cou");
+		}
+		catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+
+		DashboardComponent dshNurses = new DashboardComponent("Nurse", num);
 		panel.add(dshNurses);
 		// }}
 
 		// {{ Initialize Laboratorist Dashboard Component
-		DashboardComponent dshLabs = new DashboardComponent("Laboratorist", 5);
+		
+		/**read the number of labworkers in database*/
+		try {
+			ConnectToDataBase.rs = ConnectToDataBase.st.executeQuery("SELECT COUNT(*) as cou FROM `lab_worker` ");
+			ConnectToDataBase.rs.next();
+			num = ConnectToDataBase.rs.getInt("cou");
+		}
+		catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+
+		DashboardComponent dshLabs = new DashboardComponent("Laboratorist", num);
 		panel.add(dshLabs);
 		// }}
 
