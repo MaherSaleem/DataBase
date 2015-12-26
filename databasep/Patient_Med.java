@@ -1,3 +1,6 @@
+package databasep;
+import javax.swing.JOptionPane;
+
 
 public class Patient_Med {
 
@@ -152,8 +155,21 @@ public class Patient_Med {
 	}
 	
 	
-	static void addToDataBase(){
-		//TODO (insert statement will be put here)
+	static void insertToDataBase(Patient_Med p){
+		
+		try {
+			
+			
+			ConnectToDataBase.st.execute(String.format(
+					"INSERT INTO `hospital`.`pat-med` (`pid`, `eid`, `mid`, `date`, `quantity`)"
+					+ " VALUES (%d, %d, %d, '%s', %d)" ,p.Pid , p.Eid , p.Mid  , p.dat , p.quantity ));
+
+		}
+		catch (Exception e) {
+			JOptionPane.showMessageDialog(null,
+					"there in and error with insearting this pateint medicine");
+			e.printStackTrace();
+		}
 	}
 	
 	static  void deleteFromDataBase(){

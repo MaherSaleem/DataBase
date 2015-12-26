@@ -1,3 +1,4 @@
+package databasep;
 import javax.swing.JOptionPane;
 
 public class LabWorker extends Employee {

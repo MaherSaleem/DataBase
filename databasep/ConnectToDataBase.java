@@ -1,3 +1,4 @@
+package databasep;
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -59,8 +60,6 @@ public class ConnectToDataBase {
 		// while (rs.next())
 		// System.out.println(rs.getInt("did") + " " + rs.getString("dname"));
 
-		DB.st.execute(String
-				.format("INSERT INTO `test` (`tid`, `tname`) VALUES (5, 'maher')"));
 
 	}
 

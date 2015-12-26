@@ -1,30 +1,33 @@
+package databasep;
 
-public class Patient_Test {
+public class Patient_Room {
 
-	Integer Pid;
+	Integer pid;
 	Integer Eid;
-	Integer Tid;
+	Integer Rid;
 	date dat;
+	date endDate;
 	
 	
 	
-	
-	public Patient_Test() {
+	public Patient_Room() {
 		// TODO Auto-generated constructor stub
 	}
-	
 	/**
 	 * @param pid
 	 * @param eid
-	 * @param tid
+	 * @param rid
 	 * @param dat
+	 * @param endDate
 	 */
-	public Patient_Test(Integer pid, Integer eid, Integer tid, date dat) {
+	public Patient_Room(Integer pid, Integer eid, Integer rid, date dat,
+			date endDate) {
 		super();
-		Pid = pid;
+		this.pid = pid;
 		Eid = eid;
-		Tid = tid;
+		Rid = rid;
 		this.dat = dat;
+		this.endDate = endDate;
 	}
 
 	
@@ -34,7 +37,7 @@ public class Patient_Test {
 	 * @return the pid
 	 */
 	public Integer getPid() {
-		return Pid;
+		return pid;
 	}
 
 
@@ -44,7 +47,7 @@ public class Patient_Test {
 	 * @param pid the pid to set
 	 */
 	public void setPid(Integer pid) {
-		Pid = pid;
+		this.pid = pid;
 	}
 
 
@@ -71,20 +74,20 @@ public class Patient_Test {
 
 
 	/**
-	 * @return the tid
+	 * @return the rid
 	 */
-	public Integer getTid() {
-		return Tid;
+	public Integer getRid() {
+		return Rid;
 	}
 
 
 
 
 	/**
-	 * @param tid the tid to set
+	 * @param rid the rid to set
 	 */
-	public void setTid(Integer tid) {
-		Tid = tid;
+	public void setRid(Integer rid) {
+		Rid = rid;
 	}
 
 
@@ -110,18 +113,36 @@ public class Patient_Test {
 
 
 
+	/**
+	 * @return the endDate
+	 */
+	public date getEndDate() {
+		return endDate;
+	}
+
+
+
+
+	/**
+	 * @param endDate the endDate to set
+	 */
+	public void setEndDate(date endDate) {
+		this.endDate = endDate;
+	}
+
+
+
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "Patient_Test [Pid=" + Pid + ", Eid=" + Eid + ", Tid=" + Tid
-				+ ", dat=" + dat + "]";
+		return "Patient_Room [pid=" + pid + ", Eid=" + Eid + ", Rid=" + Rid
+				+ ", dat=" + dat + ", endDate=" + endDate + "]";
 	}
-
-
 	
-
+	
 	static void addToDataBase(){
 		//TODO (insert statement will be put here)
 	}
@@ -129,6 +150,5 @@ public class Patient_Test {
 	static  void deleteFromDataBase(){
 		//TODO
 	}
-	
 	
 }
