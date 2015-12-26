@@ -4,10 +4,12 @@ public class Department {
 	Integer did;
 	String dname;
 
-	public Department() {
-
+	
+	
+	public Department(){
+		
 	}
-
+	
 	public Department(Integer did, String dname) {
 		super();
 		this.did = did;
