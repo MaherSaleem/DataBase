@@ -216,9 +216,9 @@ public class Employee {
 			ConnectToDataBase.st
 					.execute(String
 							.format("INSERT INTO `hospital`.`employee` "
-									+ "(`Eid`, `Ename`, `did`, `salary`, `cid`, `supervise_eid`, `rid`) "
-									+ "VALUES ('%d', '%s', %d , %d, %d, %d , %d  )",
-									e.eid , e.ename , e.did   , e.sallary , e.cid , e.superviseid , e.rid));
+									+ "(`Eid`, `Ename`, `did`,`type`, `salary`, `cid`, `supervise_eid`, `rid`) "
+									+ "VALUES ('%d', '%s', %d , %d,%d, %d, %d , %d  )",
+									e.eid , e.ename , e.did ,e.type  , e.sallary , e.cid , e.superviseid , e.rid));
 
 		}
 		catch (Exception ex) {
