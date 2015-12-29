@@ -120,7 +120,11 @@ public class NewPatient extends JApplet {
 	public void whenFinish(JTabbedPane tabbedPane) {
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {			
+<<<<<<< HEAD
 				Patient p = new Patient(188, txtPName.getText(), ((String)cmbGender.getSelectedItem()).charAt(0));
+=======
+				Patient p = new Patient(null, txtPName.getText(), ((String)comboBox.getSelectedItem()).charAt(0));
+>>>>>>> f3b348a886c343029a50c2833dccd4b55e099ada
 				p.setDateOfBirth(new date(20, 05, 1995));
 				p.setBloadType(cmbBloodType.getSelectedItem().toString());
 				p.insertToDatabase(p);

@@ -103,8 +103,8 @@ public class Patient {
 		try {
 			ConnectToDataBase.st.execute(String.format(
 					"INSERT INTO `hospital`.`patient`"
-					+ " (`pid`, `pname`, `gender`, `dateOfBirth`, `bload_type`) "
-					+ "VALUES ('%d', '%s', '%c', '%s', '%s' )", p.pid ,
+					+ " ( `pname`, `gender`, `dateOfBirth`, `bload_type`) "
+					+ "VALUES ( '%s', '%c', '%s', '%s' )" ,
 							p.pname , p.gender , p.dateOfBirth.toString() ,p.bloadType ));
 
 		}

@@ -7,11 +7,17 @@ public class Employee {
 	Integer eid;
 	String ename;
 	Integer did;
+	int type;
 	date ebirth;
 	int sallary;
 	Integer cid;
 	int superviseid;
 	Integer rid;
+	
+	//assign them the index of the combo box
+	final static int DOCTOR =0;
+	final static int NURSE =0;
+	final static int LAB_WORKER =0;
 
 	public Employee() {
 		super();
@@ -29,7 +35,7 @@ public class Employee {
 	 * @param superviseid
 	 * @param rid
 	 */
-	public Employee(Integer eid, String ename, Integer did, date ebirth,
+	public Employee(Integer eid, String ename, Integer did,int type, date ebirth,
 			int sallary, Integer cid, int superviseid, Integer rid) {
 		this.eid = eid;
 		this.ename = ename;
@@ -66,6 +72,24 @@ public class Employee {
 	 */
 	public String getEname() {
 		return ename;
+	}
+
+
+
+	/**
+	 * @return the type
+	 */
+	public int getType() {
+		return type;
+	}
+
+
+
+	/**
+	 * @param type the type to set
+	 */
+	public void setType(int type) {
+		this.type = type;
 	}
 
 
@@ -192,9 +216,9 @@ public class Employee {
 			ConnectToDataBase.st
 					.execute(String
 							.format("INSERT INTO `hospital`.`employee` "
-									+ "(`Eid`, `Ename`, `did`, `salary`, `cid`, `supervise_eid`, `rid`) "
-									+ "VALUES ('%d', '%s', %d , %d, %d, %d , %d  )",
-									e.eid , e.ename , e.did   , e.sallary , e.cid , e.superviseid , e.rid));
+									+ "(`Eid`, `Ename`, `did`,`type`, `salary`, `cid`, `supervise_eid`, `rid`) "
+									+ "VALUES ('%d', '%s', %d , %d,%d, %d, %d , %d  )",
+									e.eid , e.ename , e.did ,e.type  , e.sallary , e.cid , e.superviseid , e.rid));
 
 		}
 		catch (Exception ex) {
