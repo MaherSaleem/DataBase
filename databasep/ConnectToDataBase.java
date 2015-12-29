@@ -23,6 +23,7 @@ public class ConnectToDataBase {
 	public static String url = "jdbc:mysql://localhost/hospital";
 	public static String user = "root";
 	public static String pass = "";
+	public static ResultSet rs = null;
 
 	// function to connect
 	public static void go() {
