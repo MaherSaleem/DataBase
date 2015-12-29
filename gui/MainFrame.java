@@ -67,12 +67,6 @@ public class MainFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-<<<<<<< HEAD
-		ConnectToDataBase.go();
-=======
-		
-		
->>>>>>> f3b348a886c343029a50c2833dccd4b55e099ada
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -229,7 +223,6 @@ public class MainFrame {
 		JLabel lblClose = new JLabel("Close");
 		mnNewMenu.add(lblClose);
 		// }}
-<<<<<<< HEAD
 		btnShowAllPatients.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				ShowTable patients = new ShowTable("Patient");
@@ -238,9 +231,7 @@ public class MainFrame {
 			}
 		});
 		
-=======
 
->>>>>>> f3b348a886c343029a50c2833dccd4b55e099ada
 		btnAddNewPatients.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				NewPatient np = new NewPatient();

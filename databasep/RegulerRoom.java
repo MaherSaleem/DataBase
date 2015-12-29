@@ -1,4 +1,9 @@
 package databasep;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import javax.swing.JOptionPane;
 
 
@@ -43,6 +48,26 @@ public class RegulerRoom extends Room{
 	public static void deletToDatabase() {
 		//TODO
 	}
+	
+	public static String [] getrooms() throws SQLException{
+		
+		ArrayList<String> a = new ArrayList<String>();
+		ConnectToDataBase.rs = ConnectToDataBase.st.executeQuery(
+				String.format("SELECT * FROM `regular_room`"));
+		
+		ResultSet r = ConnectToDataBase.rs;
+		while(r.next()){
+			a.add(r.getInt("rid") + " ") ;
+		}
+		
+		String resultArray [] = new String [a.size()];
+		for (int i = 0; i < resultArray.length; i++) {
+			resultArray[i] = a.get(i);
+		}
+		System.out.println(Arrays.toString(resultArray));
+		return resultArray;
+	}
+
 	
 
 }

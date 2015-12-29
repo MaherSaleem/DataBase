@@ -1,4 +1,10 @@
 package databasep;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import javax.naming.spi.DirStateFactory.Result;
 import javax.swing.JOptionPane;
 
 import com.mysql.jdbc.PreparedStatement;
@@ -231,6 +237,25 @@ public class Employee {
 
 	public static void deletToDatabase() {
 		// To Do
+	}
+	
+	public static String [] getAllDoctors() throws SQLException{
+		
+		ArrayList<String> a = new ArrayList<String>();
+		ConnectToDataBase.rs = ConnectToDataBase.st.executeQuery(
+				String.format("select * from employee where type = 0"));
+		
+		ResultSet r = ConnectToDataBase.rs;
+		while(r.next()){
+			a.add(r.getString("ename"));
+		}
+		
+		String resultArray [] = new String [a.size()];
+		for (int i = 0; i < resultArray.length; i++) {
+			resultArray[i] = a.get(i);
+		}
+		System.out.println(Arrays.toString(resultArray));
+		return resultArray;
 	}
 
 }

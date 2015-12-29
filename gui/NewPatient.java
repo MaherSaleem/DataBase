@@ -19,7 +19,6 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.FormSpecs;
 import com.jgoodies.forms.layout.RowSpec;
-import com.sun.xml.internal.fastinfoset.sax.Properties;
 
 import databasep.DateLabelFormatter;
 import databasep.Patient;
@@ -120,11 +119,7 @@ public class NewPatient extends JApplet {
 	public void whenFinish(JTabbedPane tabbedPane) {
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {			
-<<<<<<< HEAD
-				Patient p = new Patient(188, txtPName.getText(), ((String)cmbGender.getSelectedItem()).charAt(0));
-=======
-				Patient p = new Patient(null, txtPName.getText(), ((String)comboBox.getSelectedItem()).charAt(0));
->>>>>>> f3b348a886c343029a50c2833dccd4b55e099ada
+				Patient p = new Patient(null, txtPName.getText(), ((String)cmbGender.getSelectedItem()).charAt(0));
 				p.setDateOfBirth(new date(20, 05, 1995));
 				p.setBloadType(cmbBloodType.getSelectedItem().toString());
 				p.insertToDatabase(p);
