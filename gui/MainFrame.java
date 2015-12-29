@@ -28,6 +28,8 @@ import javax.swing.JTextField;
 import com.jgoodies.common.base.*;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 
+import databasep.ConnectToDataBase;
+
 import javax.swing.JEditorPane;
 import javax.swing.JSlider;
 import javax.swing.JSeparator;
@@ -38,15 +40,20 @@ import java.awt.FlowLayout;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
+
 import java.awt.Font;
+
 import javax.swing.border.EtchedBorder;
 import javax.swing.JPopupMenu;
+
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Label;
 import java.awt.Button;
+
 import javax.swing.border.TitledBorder;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -59,6 +66,7 @@ public class MainFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		ConnectToDataBase.go();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -75,6 +83,7 @@ public class MainFrame {
 	 * Create the application.
 	 */
 	public MainFrame() {
+		
 		initialize();
 	}
 
@@ -167,6 +176,13 @@ public class MainFrame {
 		JLabel lblClose = new JLabel("Close");
 		mnNewMenu.add(lblClose);
 		// }}
+		btnShowAllPatients.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ShowTable patients = new ShowTable("Patient");
+				tabbedPane.addTab("Patients", null, patients.getContentPane(), null);
+				tabbedPane.setSelectedIndex(tabbedPane.getTabCount()-1);
+			}
+		});
 		
 		btnAddNewPatients.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
