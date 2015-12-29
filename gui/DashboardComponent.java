@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 public class DashboardComponent extends JApplet {
 	
 	String name;
+	String tableName;
 	int nb;
 	JPanel pnlMain;
 	

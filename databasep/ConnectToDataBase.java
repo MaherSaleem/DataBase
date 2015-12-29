@@ -38,8 +38,7 @@ public class ConnectToDataBase {
 
 		try {
 			con = DriverManager.getConnection(url, user, pass);
-			st = con.createStatement();// ���� ��� ���
-										// ��� ��� SQL
+			st = con.createStatement();
 			System.out.println(" >>>>>>>>>>>>>>>connected <<<<<<<<<<<<< ");
 		}
 		catch (SQLException e) {

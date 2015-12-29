@@ -17,6 +17,8 @@ import javax.swing.JButton;
 
 import net.proteanit.sql.DbUtils;
 import javax.swing.JScrollPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ShowTable extends JApplet {
 	private String tableName;
@@ -30,6 +32,10 @@ public class ShowTable extends JApplet {
 				ColumnSpec.decode("default:grow"),
 				FormSpecs.RELATED_GAP_COLSPEC,
 				ColumnSpec.decode("default:grow"),
+				FormSpecs.RELATED_GAP_COLSPEC,
+				FormSpecs.DEFAULT_COLSPEC,
+				FormSpecs.RELATED_GAP_COLSPEC,
+				FormSpecs.DEFAULT_COLSPEC,
 				FormSpecs.RELATED_GAP_COLSPEC,
 				FormSpecs.DEFAULT_COLSPEC,
 				FormSpecs.RELATED_GAP_COLSPEC,
@@ -90,18 +96,11 @@ public class ShowTable extends JApplet {
 				FormSpecs.RELATED_GAP_ROWSPEC,
 				FormSpecs.DEFAULT_ROWSPEC,}));
 	    JScrollPane scrollPane = new JScrollPane();
-	    getContentPane().add(scrollPane, "2, 4, 23, 17, fill, fill");
+	    getContentPane().add(scrollPane, "2, 4, 27, 17, fill, fill");
 	    
 	    table = new JTable();
 	    scrollPane.setViewportView(table);
-		try {
-			ConnectToDataBase.rs = ConnectToDataBase.st.executeQuery("select * from "+ tableName);
-			  table.setModel(DbUtils.resultSetToTableModel(ConnectToDataBase.rs));
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	    
+	    refreshTable();
 	    JButton btnInsert = new JButton("Insert");
 		getContentPane().add(btnInsert, "4, 22");
 		
@@ -109,8 +108,35 @@ public class ShowTable extends JApplet {
 		getContentPane().add(btnModify, "10, 22");
 		
 		JButton btnRemove = new JButton("Remove");
+		
 		getContentPane().add(btnRemove, "16, 22");
+		
+		JButton btnClose = new JButton("Close");
+		getContentPane().add(btnClose, "22, 22");
 
+		btnRemove.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int row = table.getSelectedRow();
+				int id = (int)table.getValueAt(row, 0);
+				try {
+					ConnectToDataBase.st.execute(String.format("delete from "+tableName+" where pid=%d", id));
+					refreshTable();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 
+	void refreshTable() {
+		try {
+			ConnectToDataBase.rs = ConnectToDataBase.st.executeQuery("select * from "+ tableName);
+			table.setModel(DbUtils.resultSetToTableModel(ConnectToDataBase.rs));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
 }
