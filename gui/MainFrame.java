@@ -227,15 +227,30 @@ public class MainFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				ShowTable patients = new ShowTable("Patient");
 				tabbedPane.addTab("Patients", null, patients.getContentPane(), null);
+				patients.whenFinish(tabbedPane);
 				tabbedPane.setSelectedIndex(tabbedPane.getTabCount()-1);
 			}
 		});
-		
-
 		btnAddNewPatients.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				NewPatient np = new NewPatient();
 				tabbedPane.addTab("New Patient", null, np.pnlCenter, null);
+				np.whenFinish(tabbedPane);
+				tabbedPane.setSelectedIndex(tabbedPane.getTabCount() - 1);
+			}
+		});
+		btnShowAllDoctors.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ShowTable Employees = new ShowTable("Employee");
+				tabbedPane.addTab("Employees", null, Employees.getContentPane(), null);
+				Employees.whenFinish(tabbedPane);
+				tabbedPane.setSelectedIndex(tabbedPane.getTabCount()-1);
+			}
+		});
+		btnAddNewDoctors.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				NewEmployee np = new NewEmployee();
+				tabbedPane.addTab("New Doctor", null, np.pnlCenter, null);
 				np.whenFinish(tabbedPane);
 				tabbedPane.setSelectedIndex(tabbedPane.getTabCount() - 1);
 			}

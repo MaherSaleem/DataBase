@@ -1,3 +1,4 @@
+package databasep;
 
 public class Lab {
 	int lid ;

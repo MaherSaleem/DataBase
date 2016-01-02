@@ -16,22 +16,21 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.FormSpecs;
 import com.jgoodies.forms.layout.RowSpec;
 
-import databasep.Patient;
-import databasep.date;
+import databasep.*;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class NewDoctor extends JApplet {
-	private JTextField txtDName;
+public class NewEmployee extends JApplet {
+	private JTextField txtEName;
 	public JPanel pnlCenter;
-	JButton btnAdd;
-	JButton btnClose;
-	JComboBox comboBox;
+	private JButton btnAdd;
+	private JButton btnClose;
+	private JComboBox comboBox;
 	/**
 	 * Create the applet.
 	 */
-	public NewDoctor() {
+	public NewEmployee() {
 		JPanel pnlCenter = new JPanel();
 		pnlCenter.setLayout(new FormLayout(new ColumnSpec[] {
 				FormSpecs.RELATED_GAP_COLSPEC,
@@ -60,48 +59,53 @@ public class NewDoctor extends JApplet {
 				FormSpecs.RELATED_GAP_ROWSPEC,
 				FormSpecs.DEFAULT_ROWSPEC,
 				FormSpecs.RELATED_GAP_ROWSPEC,
+				FormSpecs.DEFAULT_ROWSPEC,
+				FormSpecs.RELATED_GAP_ROWSPEC,
+				FormSpecs.DEFAULT_ROWSPEC,
+				FormSpecs.RELATED_GAP_ROWSPEC,
 				FormSpecs.DEFAULT_ROWSPEC,}));
 		
-		JLabel lblDoctorName = new JLabel("Doctor Name");
-		pnlCenter.add(lblDoctorName, "4, 4, left, default");
+		String types[] = {"Doctor", "Nurse", "Lab Worker"};
+		JComboBox cmbType = new JComboBox(types);
+		pnlCenter.add(cmbType, "8, 2, fill, default");
 		
-		txtDName = new JTextField();
-		pnlCenter.add(txtDName, "8, 4, fill, default");
-		txtDName.setColumns(10);
+		JLabel lblEmployeeName = new JLabel("Employee Name");
+		pnlCenter.add(lblEmployeeName, "4, 4, left, default");
 		
-		JLabel lblNewLabel = new JLabel("Department");
-		pnlCenter.add(lblNewLabel, "4, 6, left, default");
-		
-		JComboBox comboBox = new JComboBox();
-		pnlCenter.add(comboBox, "8, 6, fill, default");
-		
-		JLabel lblNewLabel_1 = new JLabel("Office Room");
-		pnlCenter.add(lblNewLabel_1, "4, 8, left, default");
-		
-		JComboBox comboBox_1 = new JComboBox();
-		pnlCenter.add(comboBox_1, "8, 8, fill, default");
+		txtEName = new JTextField();
+		pnlCenter.add(txtEName, "8, 4, fill, default");
+		txtEName.setColumns(10);
 		
 		JLabel lblBirthdate = new JLabel("Birthdate");
-		pnlCenter.add(lblBirthdate, "4, 10, left, default");
+		pnlCenter.add(lblBirthdate, "4, 6, left, default");
 		
 		JFormattedTextField formattedTextField = new JFormattedTextField();
-		pnlCenter.add(formattedTextField, "8, 10, fill, default");
+		pnlCenter.add(formattedTextField, "8, 6, fill, default");
 		
-		JButton btnAdd = new JButton("Add");
-		pnlCenter.add(btnAdd, "4, 16");
+		JLabel lblCity = new JLabel("City");
+		pnlCenter.add(lblCity, "4, 8");
 		
-		JButton btnClose = new JButton("Close");
-		pnlCenter.add(btnClose, "8, 16, right, default");
-				
+		JComboBox cmbCities = new JComboBox();
+		pnlCenter.add(cmbCities, "8, 8, fill, default");
+		
+		JLabel lblNewLabel = new JLabel("Department");
+		pnlCenter.add(lblNewLabel, "4, 10, left, default");
+		
+		JComboBox cmbDep = new JComboBox();
+		pnlCenter.add(cmbDep, "8, 10, fill, default");
+		
+		btnAdd = new JButton("Add");
+		pnlCenter.add(btnAdd, "4, 20");
+		
+		btnClose = new JButton("Close");
+		pnlCenter.add(btnClose, "8, 20, right, default");
 		
 	}
 	
 	public void whenFinish(JTabbedPane tabbedPane) {
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {			
-				Patient p = new Patient(188, txtDName.getText(), ((String)comboBox.getSelectedItem()).charAt(0));
-				p.setDateOfBirth(new date(20, 05, 1995));
-				p.insertToDatabase(p);
+				//Insert new employee
 				tabbedPane.remove(tabbedPane.getSelectedComponent());
 			}
 		});
@@ -112,4 +116,6 @@ public class NewDoctor extends JApplet {
 		});
 	}
 
+	
+	
 }
